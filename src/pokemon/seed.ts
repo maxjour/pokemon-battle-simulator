@@ -1,8 +1,10 @@
-import mongoose from "mongoose";
-import { readFileSync } from "node:fs";
-import { Pokemon, PokemonSchema } from "./schemas/pokemon.schema.js";
+import mongoose from 'mongoose';
+import { readFileSync } from 'node:fs';
+import { Pokemon, PokemonSchema } from './schemas/pokemon.schema.js';
 
-await mongoose.connect(process.env.MONGO_URI ?? "mongodb://localhost:27017/pokemon-battle-simulator");
+await mongoose.connect(
+  process.env.MONGO_URI ?? 'mongodb://localhost:27017/pokemon-battle-simulator',
+);
 
 const PokemonModel = mongoose.model(Pokemon.name, PokemonSchema);
 
@@ -15,10 +17,11 @@ interface RawPokemon {
   weaknesses: string[];
 }
 
-
-const raw = readFileSync(new URL("./data/pokedex.json", import.meta.url), "utf-8");
+const raw = readFileSync(
+  new URL('./data/pokedex.json', import.meta.url),
+  'utf-8',
+);
 const { pokemon }: { pokemon: RawPokemon[] } = JSON.parse(raw);
-
 
 const docs = pokemon.map((p) => {
   const height = parseFloat(p.height);
@@ -41,5 +44,5 @@ const docs = pokemon.map((p) => {
 await PokemonModel.deleteMany({});
 await PokemonModel.insertMany(docs);
 
-console.log("Seeded", docs.length, "Pokemon");
+console.log('Seeded', docs.length, 'Pokemon');
 await mongoose.disconnect();

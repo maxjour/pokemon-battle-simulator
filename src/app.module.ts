@@ -12,7 +12,10 @@ import { BattleModule } from './battle/battle.module.js';
     MongooseModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
-        uri: config.get<string>('MONGO_URI', 'mongodb://localhost:27017/pokemon-battle-simulator'),
+        uri: config.get<string>(
+          'MONGO_URI',
+          'mongodb://localhost:27017/pokemon-battle-simulator',
+        ),
       }),
     }),
     PokemonModule,
@@ -21,4 +24,4 @@ import { BattleModule } from './battle/battle.module.js';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

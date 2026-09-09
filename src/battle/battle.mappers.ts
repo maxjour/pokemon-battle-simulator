@@ -9,7 +9,10 @@ export function toFighterSummaries(fighters: Fighter[]): FighterSummary[] {
   const summaries: FighterSummary[] = [];
 
   for (const fighter of fighters) {
-    summaries.push({ name: fighter.pokemon.name, remainingHp: fighter.currentHp });
+    summaries.push({
+      name: fighter.pokemon.name,
+      remainingHp: fighter.currentHp,
+    });
   }
 
   return summaries;
