@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { PokemonModule } from './pokemon/pokemon.module.js';
+import { BattleModule } from './battle/battle.module.js';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { PokemonModule } from './pokemon/pokemon.module.js';
       }),
     }),
     PokemonModule,
+    BattleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
