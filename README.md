@@ -112,3 +112,4 @@ This would have been covered with more time.
   teamA/teamB, custom team names) — both genuinely separate from the
   core requirement, skipped to keep the core simulation solid within
   the time budget. 
+- GitHub Actions: first time using it — previously worked with Jenkins and Atlassian tooling. The default workflow included an e2e job, but this project has no e2e tests, so that step was removed. Pipeline currently runs unit tests only.
