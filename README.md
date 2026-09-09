@@ -13,7 +13,6 @@ Node.js, TypeScript, NestJS, MongoDB (Mongoose), Docker. Vitest for tests.
 
 **Docker (recommended):**
 
-npm install
 ```bash
 docker compose up --build -d
 docker compose exec app node dist/pokemon/seed.js
