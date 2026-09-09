@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { PokemonService } from '../pokemon/pokemon.service.js';
-import { Pokemon } from '../pokemon/schemas/pokemon.schema.js';
 import { BattleLogEntry, BattleResult, Fighter, Team } from './battle.types.js';
 import { toFighter, toFighterSummaries } from './battle.mappers.js';
 import { attack, resolveRoundLimit } from './battle.combat.js';
